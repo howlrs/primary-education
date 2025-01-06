@@ -18,7 +18,7 @@ interface SitemapRow {
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // const now = new Date()
-    const now = new Date('2024-12-31T00:00:00Z')
+    const now = new Date('2025-01-05T00:00:00Z')
 
     // ベースURLを取得
     const baseUrl = getBaseUrl()
