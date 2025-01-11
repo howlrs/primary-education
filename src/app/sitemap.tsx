@@ -19,6 +19,8 @@ interface SitemapRow {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     // const now = new Date()
     const now = new Date('2025-01-05T00:00:00Z')
+    // string date format 2025-01-05
+    const date = now.toISOString().split('T')[0]
 
     // ベースURLを取得
     const baseUrl = getBaseUrl()
@@ -33,7 +35,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const staticPages: SitemapRow[] = [
         {
             url: '/',
-            lastModified: now,
+            lastModified: date,
             changeFrequency: 'daily',
             priority: 1.0
         }
@@ -61,7 +63,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     slug_set.forEach(slug => {
         sitemap.push({
             url: slug,
-            lastModified: now,
+            lastModified: date,
             changeFrequency: 'weekly',
             priority: 0.9
         })
@@ -77,7 +79,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     catslug_set.forEach(slug => {
         sitemap.push({
             url: slug,
-            lastModified: now,
+            lastModified: date,
             changeFrequency: 'weekly',
             priority: 0.8
         })
@@ -93,7 +95,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     subslug_set.forEach(slug => {
         sitemap.push({
             url: slug,
-            lastModified: now,
+            lastModified: date,
             changeFrequency: 'weekly',
             priority: 0.7
         })
@@ -125,13 +127,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const otherPages: SitemapRow[] = [
         {
             url: '/about',
-            lastModified: now,
+            lastModified: date,
             changeFrequency: 'monthly',
             priority: 0.2
         },
         {
             url: '/poricy',
-            lastModified: now,
+            lastModified: date,
             changeFrequency: 'monthly',
             priority: 0.2
         }
